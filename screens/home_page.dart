@@ -26,7 +26,7 @@ class _ChatPageState extends State<ChatScreen> {
   Widget build(BuildContext context) {
 
     return new Scaffold(
-      backgroundColor: Color.fromRGBO(131, 132 ,97 ,1.0),
+      backgroundColor: Color.fromRGBO(230, 220, 255, 1.0),
         appBar: new AppBar(
           title: new Text("Main Chat"),
         ),

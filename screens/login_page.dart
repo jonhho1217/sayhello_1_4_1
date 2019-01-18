@@ -182,7 +182,7 @@ class _LoginPageState extends State<LoginPage> {
 
     return Scaffold(
       key: _scaffoldKey,
-      backgroundColor: Color.fromRGBO(230, 220, 255, 1.0),
+      backgroundColor: Color.fromRGBO(119, 94 ,93, 1.0),
       body: Center(
         child: buildLogin(context),
       ),
