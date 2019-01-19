@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'dart:io' show Platform;
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -10,12 +11,16 @@ import 'package:sayhello/screens/login_page.dart';
 import 'package:sayhello/screens/register_page.dart';
 import 'package:sayhello/themes.dart';
 
-import 'dart:io' show S;
 Future<void> main() async {
+  String googlappid = '1:1078068933478:android:668ae3e8dfce9ad5';
+  if (Platform.isIOS) {
+    googlappid = '1:1078068933478:ios:80ddcc18ff9fd6b7';
+  }
+
   final FirebaseApp app = await FirebaseApp.configure(
     name: 'SayHello',
-    options: const FirebaseOptions(
-      googleAppID: '1:1078068933478:android:668ae3e8dfce9ad5',
+    options: FirebaseOptions(
+      googleAppID: googlappid,
       apiKey: 'AIzaSyC0ALz3dlDvlHw5WJACMRSc9g-H0D7e5Oc',
       projectID: 'sayhello-bed85',
     ),
