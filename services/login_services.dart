@@ -18,8 +18,8 @@ loginInitial(_parm1, _parm2, remember, BuildContext context, _scaffoldKey) async
   if (signinReturn[0] != null) {
     FirebaseUser user = signinReturn[0];
 
-    Navigator.of(context).push(MaterialPageRoute // go to Account Balance page
-      (builder: (BuildContext context) => ChatScreen(user.displayName)));
+    Navigator.of(context).push(MaterialPageRoute
+      (builder: (BuildContext context) => HomePage()));
   }
   else {
     _scaffoldKey.currentState.showSnackBar(

@@ -63,7 +63,7 @@ class _LoginPageState extends State<LoginPage> {
       if (user != null) {
         _scaffoldKey.currentState.showSnackBar(new SnackBar(content: new Text('Logging In with Gmail...')));
         Navigator.of(context).push(MaterialPageRoute
-      (builder: (BuildContext context) => ChatScreen(user.displayName)));
+      (builder: (BuildContext context) => HomePage()));
       }
     });
   }
@@ -141,7 +141,7 @@ class _LoginPageState extends State<LoginPage> {
             _scaffoldKey.currentState.hideCurrentSnackBar();
 
           },
-          color: const Color(0xFF6BBEFF),
+          color: Colors.blueAccent,
           child: !submitting
               ? new Text('Login',
                   style: TextStyle(color: Colors.white, fontSize: 18.0))
@@ -182,7 +182,7 @@ class _LoginPageState extends State<LoginPage> {
 
     return Scaffold(
       key: _scaffoldKey,
-      backgroundColor: Color.fromRGBO(119, 94 ,93, 1.0),
+      backgroundColor: Colors.white70,
       body: Center(
         child: buildLogin(context),
       ),

@@ -35,7 +35,7 @@ class GSignIn extends StatelessWidget {
 //        }
         showSnackBar(context, 'Welcome ${user.displayName}');
         Navigator.of(context).push(MaterialPageRoute
-          (builder: (BuildContext context) => ChatScreen(user.displayName)));
+          (builder: (BuildContext context) => HomePage()));
       });
     });
   }

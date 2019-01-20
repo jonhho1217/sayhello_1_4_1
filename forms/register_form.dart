@@ -125,7 +125,7 @@ class _RegisterFormState extends State<RegisterForm> {
 
         Navigator.pop(context);
         Navigator.of(context).push(MaterialPageRoute // go to Account Balance page
-          (builder: (BuildContext context) => ChatScreen(user.displayName)));
+          (builder: (BuildContext context) => HomePage()));
       }
       else {
         snackBar = SnackBar(content: Text(signupReturn[1]));
