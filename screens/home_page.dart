@@ -7,7 +7,13 @@ import 'package:sayhello/ui/widgets/about_tile.dart';
 import 'package:sayhello/ui/widgets/profile_tile.dart';
 import 'package:sayhello/utils/uidata.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+
+  @override
+  _HomePage createState() => new _HomePage();
+}
+
+class _HomePage extends State<HomePage> {
   final _scaffoldState = GlobalKey<ScaffoldState>();
   Size deviceSize;
   BuildContext _context;

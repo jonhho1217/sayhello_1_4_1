@@ -3,15 +3,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+//import 'package:google_sign_in/google_sign_in.dart';
+
+import 'package:sayhello/services/login_services.dart';
+//import 'package:sayhello/services/google/google_sign_in.dart';
+import 'package:sayhello/services/firebase_config.dart';
 
 import 'package:sayhello/screens/register_page.dart';
-import 'package:sayhello/services/login_services.dart';
-import 'package:sayhello/services/google/google_auth.dart';
-import 'package:sayhello/services/google/google_sign_in.dart';
-import 'package:sayhello/services/firebase_config.dart';
-import 'package:sayhello/screens/home_page.dart';
 
 class LoginPage extends StatefulWidget {
   static String tag = 'login-page';
@@ -23,7 +21,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
-  GoogleSignInAccount _currentGmail;
+//  GoogleSignInAccount _currentGmail;
   bool submitting = false;
   bool rememberMe = false;
 
@@ -42,11 +40,11 @@ class _LoginPageState extends State<LoginPage> {
     });
   }
 
-  GoogleSignIn googleSignIn = GoogleSignIn(
-    scopes: [
-      'email',
-    ],
-  );
+//  GoogleSignIn googleSignIn = GoogleSignIn(
+//    scopes: [
+//      'email',
+//    ],
+//  );
 
   @override
   void initState() {
@@ -54,18 +52,18 @@ class _LoginPageState extends State<LoginPage> {
     WidgetsBinding.instance.addPostFrameCallback((_) => _checkLastLogin());
     initFireStore();
 
-    googleSignIn.onCurrentUserChanged.listen((GoogleSignInAccount account) {
-      setState(() {
-        _currentGmail = account;
-      });
-    });
-    googleSignIn.signInSilently().then((user) {
-      if (user != null) {
-        _scaffoldKey.currentState.showSnackBar(new SnackBar(content: new Text('Logging In with Gmail...')));
-        Navigator.of(context).push(MaterialPageRoute
-      (builder: (BuildContext context) => HomePage()));
-      }
-    });
+//    googleSignIn.onCurrentUserChanged.listen((GoogleSignInAccount account) {
+//      setState(() {
+//        _currentGmail = account;
+//      });
+//    });
+//    googleSignIn.signInSilently().then((user) {
+//      if (user != null) {
+//        _scaffoldKey.currentState.showSnackBar(new SnackBar(content: new Text('Logging In with Gmail...')));
+//        Navigator.of(context).push(MaterialPageRoute
+//      (builder: (BuildContext context) => HomePage()));
+//      }
+//    });
   }
 
   Widget build(BuildContext context) {
@@ -170,7 +168,7 @@ class _LoginPageState extends State<LoginPage> {
           pw,
           SizedBox(height: 10.0),
           loginButton,
-          register,
+//          register,
         ],
       );
       return outpage;
@@ -186,10 +184,10 @@ class _LoginPageState extends State<LoginPage> {
       body: Center(
         child: buildLogin(context),
       ),
-      floatingActionButton: GSignIn(
-        auth: GoogleAuth(
-            firebaseAuth: FirebaseAuth.instance, googleSignIn: GoogleSignIn()),
-      ),
+//      floatingActionButton: GSignIn(
+//        auth: GoogleAuth(
+//            firebaseAuth: FirebaseAuth.instance, googleSignIn: GoogleSignIn()),
+//      ),
     );
   }
 }

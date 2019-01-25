@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+//import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:sayhello/services/email/email_auth.dart';
 import 'package:sayhello/container/container.dart';
 import 'package:sayhello/screens/register_page.dart';
-import 'package:sayhello/screens/home_page.dart';
+//import 'package:sayhello/screens/home_page.dart';
 
 loginInitial(_parm1, _parm2, remember, BuildContext context, _scaffoldKey) async {
 
@@ -16,10 +16,14 @@ loginInitial(_parm1, _parm2, remember, BuildContext context, _scaffoldKey) async
   signinReturn = await emailHandler.handleSignInEmail(_parm1, _parm2);
 
   if (signinReturn[0] != null) {
-    FirebaseUser user = signinReturn[0];
+//    FirebaseUser user = signinReturn[0];
 
-    Navigator.of(context).push(MaterialPageRoute
-      (builder: (BuildContext context) => HomePage()));
+//    Navigator.of(context).push(MaterialPageRoute
+//      (builder: (BuildContext context) => HomePage()));
+
+    Navigator.pushNamed(
+        context, "/My Ideas");
+
   }
   else {
     _scaffoldKey.currentState.showSnackBar(
